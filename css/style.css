@@ -79,19 +79,16 @@ img {
 /* HEADER STYLE */
 .header {
   background: #f6ebda;
-  position: relative;
-  z-index: 0;
-}
-.coffee-bg {
-  position: absolute;
-  z-index: -1;
-  right: 0;
+  background-image: url("../images/coffee.png"), url("../images/coffe-left.png");
+  background-repeat: no-repeat;
+  background-position: right top, bottom left;
 }
 .header-container {
-  padding-top: 36px;
-  padding-bottom: 36px;
+  padding-bottom: 416px;
 }
 .header-nav-container {
+  padding-top: 36px;
+  padding-bottom: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -145,9 +142,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 105px;
-}
-.hero-content {
 }
 .hero-content__title {
   color: var(--Secondary, #2f2105);
