@@ -11,6 +11,11 @@
     <title>Coffee Street</title>
     <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -80,17 +85,247 @@
             width="527px"
           />
         </div>
-        <div style="text-align: center">
-          <h2>
-            <span style="font-size: 90px; color: #f4ae26">404</span> Section not
-            found
-          </h2>
-          <h4>
-            <span style="color: red">Error status</span>: Vazifa bajarilmoqda...
-          </h4>
-          <p>Vazifa bajarilmoqda. Iltimos birozdan so'ng qayta tekshiring!</p>
-        </div>
       </div>
     </header>
+    <main class="main">
+      <!-- POPULAR NOW -->
+      <section class="popular-now">
+        <div class="popular-now-container container">
+          <h2 class="popularnow-title">Popular Now</h2>
+          <div class="popularnow-cards-container">
+            <swiper-container
+              class="popularnow-cards-list"
+              pagination="true"
+              pagination-clickable="true"
+              space-between="10"
+              slides-per-view="3"
+              id="swiper-container"
+            >
+              <!-- Kodimni qisqartirish va qayta qollash uchun js ishlatdim -->
+              <script type="module">
+                import CardItem from "./lists.js";
+
+                let container1 = document.getElementById("swiper-container");
+
+                CardItem.map((item) => {
+                  let card = document.createElement("swiper-slide");
+                  card.innerHTML = `
+                <div class="popularnow-cards-item">
+                  <figure>
+                    <span>4.8 ⭐</span>
+                    <img
+                  class="popularnow-cards-item-image"
+                  src="${item.img}"
+                  alt=""
+                  width="307px"
+                  height="226px"
+                />
+              </figure>
+              <div class="popularnow-cards-title-and-orderedNum-div">
+                <h3 class="popularnow-cards-title">${item.title}</h3>
+                <h3 class="popularnow-cards-orderedNum">${item.ordered} K</h3>
+              </div>
+                  <div class="option-container">
+                    <label class="option">
+                      <input type="radio" name="temperature" value="hot" />
+                      <span>Hot</span>
+                    </label>
+                    <label class="option">
+                      <input type="radio" name="temperature" value="cold" />
+                      <span>Cold</span>
+                    </label>
+                    <button>
+                      <img src="./images/card-korzina.svg" alt="" />
+                    </button>
+                  </div>
+                </div>
+            `;
+                  container1.appendChild(card);
+                });
+              </script>
+            </swiper-container>
+          </div>
+        </div>
+      </section>
+      <!-- DELIVERY -->
+      <section class="delivery">
+        <div class="delivery-container container">
+          <h2 class="delivery-title">How to use delivery service</h2>
+          <ul class="delivery-list">
+            <li class="delivery-item">
+              <img
+                class="delivery-item-image"
+                src="./images/choose-coffee.svg"
+                alt=""
+                width="159px"
+                height="159px"
+              />
+              <h5 class="delivery-item-title">choose your coffee</h5>
+              <p class="delivery-item-desc">there are 20+ coffees for you</p>
+            </li>
+            <li class="delivery-item">
+              <img
+                class="delivery-item-image"
+                src="./images/food-truck.svg"
+                alt=""
+                width="159px"
+                height="159px"
+              />
+              <h5 class="delivery-item-title">we delivery it to you</h5>
+              <p class="delivery-item-desc">Choose delivery service</p>
+            </li>
+            <li class="delivery-item">
+              <img
+                class="delivery-item-image"
+                src="./images/coffee-cup.svg"
+                alt=""
+                width="159px"
+                height="159px"
+              />
+              <h5 class="delivery-item-title">Enjoy your coffee</h5>
+              <p class="delivery-item-desc">Choose delivery service</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ABOUT US -->
+      <section class="about-us">
+        <div class="about-us-container container">
+          <img
+            class="about-us-image"
+            src="./images/aboutus-image.png"
+            alt=""
+            width="360"
+            height="498"
+          />
+          <div class="about-us-content">
+            <h2 class="about-us-title">About us</h2>
+            <h3 class="about-us-subtitle">
+              We provide quality coffee, and ready to deliver.
+            </h3>
+            <p class="about-us-desc">
+              We are a company that makes and distributes delicious drinks. our
+              main product is made with a secret recipe and available in stores
+              worldwide.
+            </p>
+            <a href="#" class="about-us-btn">Get your coffee</a>
+          </div>
+        </div>
+      </section>
+      <!-- MENU -->
+      <section class="menu">
+        <div class="menu-container container">
+          <h2 class="menu-title">Special menu for you</h2>
+          <div id="menu-cards"></div>
+          <!-- Kodimni qisqartirish va qayta qollash uchun js ishlatdim -->
+          <script type="module">
+            import CardItem from "./lists.js";
+
+            let container = document.getElementById("menu-cards");
+
+            CardItem.map((item) => {
+              let card = document.createElement("div");
+              card.innerHTML = `
+                <div class="popularnow-cards-item">
+                <figure>
+                <span>4.8 ⭐</span>
+                <img
+                  class="popularnow-cards-item-image"
+                  src="${item.img}"
+                  alt=""
+                  width="307px"
+                  height="226px"
+                />
+              </figure>
+              <div class="popularnow-cards-title-and-orderedNum-div">
+                <h3 class="popularnow-cards-title">${item.title}</h3>
+                <h3 class="popularnow-cards-orderedNum">${item.ordered} K</h3>
+              </div>
+              <div class="option-container">
+                <p>Lorem ipsum hello world</p>
+                <button>
+                  <img src="./images/card-korzina.svg" alt="" />
+                </button>
+              </div>
+              </div>
+            `;
+              container.appendChild(card);
+            });
+          </script>
+        </div>
+      </section>
+      <section class="comments">
+        <div class="comments-container container">
+          <div class="comments-content">
+            <h2 class="comments-content-title">What they say about us</h2>
+            <p class="comments-content-desc">
+              We always provide the best service and always maintain the quality
+              of coffee
+            </p>
+          </div>
+          <div class="comments-cards">
+            <ul class="comments-cards-list">
+              <li class="comments-cards-item">
+                <img
+                  class="comments-cards-item-image"
+                  src="./images/woman.png"
+                  alt=""
+                  width="204px"
+                  height="280px"
+                />
+                <div class="comments-cards-content">
+                  <h3 class="comments-cards-content-title">Naura</h3>
+                  <p class="comments-cards-content-desc">
+                    I really love the cappucino, the coffee was very smooth
+                  </p>
+                </div>
+              </li>
+              <li class="comments-cards-item">
+                <img
+                  class="comments-cards-item-image"
+                  src="./images/darkman.png"
+                  alt=""
+                  width="204px"
+                  height="280px"
+                />
+                <div class="comments-cards-content">
+                  <h3 class="comments-cards-content-title">John</h3>
+                  <p class="comments-cards-content-desc">
+                    this coffee shop is very convenient
+                  </p>
+                </div>
+              </li>
+              <li class="comments-cards-item">
+                <img
+                  class="comments-cards-item-image"
+                  src="./images/man.png"
+                  alt=""
+                  width="204px"
+                  height="280px"
+                />
+                <div class="comments-cards-content">
+                  <h3 class="comments-cards-content-title">Azura</h3>
+                  <p class="comments-cards-content-desc">
+                    the coffee menu here is very much
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container container">
+        <h2 class="footer-title">Subscribe to get 50% discount price</h2>
+        <form action="" class="footer-form">
+          <input type="text" class="footer-form-input" placeholder="Email address" />
+          <button class="footer-form-btn">Order now</button>
+        </form>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="./lists.js"></script>
   </body>
 </html>
